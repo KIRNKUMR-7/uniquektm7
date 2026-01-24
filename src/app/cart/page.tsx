@@ -10,9 +10,9 @@ import { formatPrice } from '@/lib/utils';
 import { Minus, Plus, X, ShoppingBag, ArrowRight } from 'lucide-react';
 
 export default function CartPage() {
-    const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
+  const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
 
-    return (
+  return (
     <main className="min-h-screen bg-gray-50">
       <Navbar />
 
@@ -132,7 +132,7 @@ export default function CartPage() {
                     <span>Tax (18% GST)</span>
                     <span className="font-semibold">{formatPrice(getTotalPrice() * 0.18)}</span>
                   </div>
-                  <divclassName="border-t border-gray-200 pt-3">
+                  <div className="border-t border-gray-200 pt-3">
                     <div className="flex justify-between text-lg">
                       <span className="font-bold text-ktm-black">Total</span>
                       <span className="font-bold text-ktm-orange text-2xl">
