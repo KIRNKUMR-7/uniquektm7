@@ -46,6 +46,35 @@ export default function TrustBadges() {
     return (
         <section className="py-12 bg-gray-50 relative z-0">
             <div className="container-custom">
+                <div className="text-center mb-16">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-block px-4 py-1.5 rounded-full bg-ktm-orange/10 text-ktm-orange text-sm font-semibold mb-4"
+                    >
+                        Why Choose Us
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-display font-bold text-ktm-black mb-6"
+                    >
+                        Our Advantages
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed"
+                    >
+                        Experience the difference of personalized care delivered by certified professionals in a comfortable, modern environment.
+                    </motion.p>
+                </div>
+
                 <motion.div
                     className="grid grid-cols-2 md:grid-cols-4 gap-6"
                     variants={container}

@@ -3,6 +3,8 @@ import FeaturedProducts from '@/components/home/FeaturedProducts';
 import CategoryGrid from '@/components/home/CategoryGrid';
 import ServiceCTA from '@/components/home/ServiceCTA';
 import TrustBadges from '@/components/home/TrustBadges';
+import CommitmentSection from '@/components/home/CommitmentSection';
+import ContactSection from '@/components/home/ContactSection';
 import CategorySection from '@/components/home/CategorySection';
 import BrandsSection from '@/components/home/BrandsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
@@ -15,9 +17,11 @@ export default function Home() {
             <Navbar />
             <HeroSection />
             <TrustBadges />
+            <CommitmentSection />
             <CategorySection />
             <FeaturedProducts />
             <BrandsSection />
+            <ContactSection />
             <ServiceCTA />
             <TestimonialsSection />
 
