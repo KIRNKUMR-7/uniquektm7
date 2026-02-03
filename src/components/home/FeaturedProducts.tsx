@@ -1,8 +1,6 @@
 'use client';
 
 import React from 'react';
-import Card from '@/components/ui/Card';
-import { Star } from 'lucide-react';
 import { productImages } from '@/lib/images';
 import { getFeaturedProducts } from '@/lib/products';
 import { motion } from 'framer-motion';
@@ -17,44 +15,45 @@ const container = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1
+            staggerChildren: 0.15
         }
     }
 };
 
 const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: { opacity: 1, y: 0, scale: 1 }
 };
 
 export default function FeaturedProducts() {
     return (
-        <section className="py-20 bg-gray-50">
-            <div className="container-custom">
+        <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23FF6600' stroke-width='0.5'/%3E%3C/svg%3E")`,
+                    backgroundSize: '60px 60px'
+                }} />
+            </div>
+
+            <div className="container-custom relative z-10">
                 <motion.div
-                    className="flex justify-between items-end mb-12"
+                    className="text-center mb-16"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-display font-bold text-ktm-black mb-4">
-                            Featured <span className="text-gradient-ktm">Products</span>
-                        </h2>
-                        <p className="text-gray-600 text-lg">
-                            100% Genuine KTM Parts - Top-rated by riders across India
-                        </p>
-                    </div>
-                    <Link href="/products" className="hidden md:block">
-                        <button className="px-6 py-3 border-2 border-ktm-orange text-ktm-orange font-semibold rounded-lg hover:bg-ktm-orange hover:text-white transition-all duration-300">
-                            View All
-                        </button>
-                    </Link>
+                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-ktm-orange to-orange-400">Products</span>
+                    </h2>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                        100% Genuine KTM Parts - Top-rated by riders across India
+                    </p>
                 </motion.div>
 
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
@@ -64,94 +63,73 @@ export default function FeaturedProducts() {
                         const imageUrl = productImages[product.id] || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80';
 
                         return (
-                            <motion.div key={product.id} variants={item} whileHover={{ y: -10 }}>
-                                <Card className="overflow-hidden group">
-                                    {/* Product Image */}
-                                    <Link href={`/products/${product.id}`}>
-                                        <div className="relative bg-gray-100 aspect-square overflow-hidden cursor-pointer">
-                                            <Image
-                                                src={imageUrl}
-                                                alt={product.name}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                            />
+                            <motion.div
+                                key={product.id}
+                                variants={item}
+                                className="group"
+                            >
+                                <Link href={`/products/${product.id}`}>
+                                    {/* Rectangular Prism Card - Skewed Design */}
+                                    <div className="relative transform transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2">
+                                        {/* Main Card with 3D Effect */}
+                                        <div
+                                            className="relative bg-gradient-to-b from-gray-100 to-gray-200 overflow-hidden shadow-2xl"
+                                            style={{
+                                                clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0% 100%)',
+                                            }}
+                                        >
+                                            {/* Product Image */}
+                                            <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={product.name}
+                                                    fill
+                                                    className="object-contain p-4 group-hover:scale-110 transition-transform duration-700"
+                                                />
 
-                                            {!product.inStock && (
-                                                <motion.div
-                                                    className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
-                                                    initial={{ opacity: 0, scale: 0.8 }}
-                                                    animate={{ opacity: 1, scale: 1 }}
-                                                >
-                                                    Out of Stock
-                                                </motion.div>
-                                            )}
-                                            <motion.div
-                                                className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg"
-                                                initial={{ opacity: 0, x: 20 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.2 }}
-                                            >
-                                                ✓ Genuine
-                                            </motion.div>
-                                        </div>
-                                    </Link>
-
-                                    {/* Product Info */}
-                                    <div className="p-5">
-                                        <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">
-                                            {product.model}
-                                        </p>
-                                        <Link href={`/products/${product.id}`}>
-                                            <h3 className="font-semibold text-lg text-ktm-black mb-2 line-clamp-2 min-h-[3.5rem] hover:text-ktm-orange transition-colors cursor-pointer">
-                                                {product.name}
-                                            </h3>
-                                        </Link>
-
-                                        {/* Rating */}
-                                        <div className="flex items-center space-x-2 mb-3">
-                                            <div className="flex items-center">
-                                                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                                <span className="text-sm font-medium ml-1">{product.rating}</span>
+                                                {/* Gradient Overlay */}
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             </div>
-                                            <span className="text-xs text-gray-500">({product.reviews} reviews)</span>
+
+                                            {/* Black Name Bar at Bottom with Orange Text */}
+                                            <div className="bg-black py-4 px-4">
+                                                <h3 className="text-ktm-orange font-display font-bold text-base text-center italic tracking-wide">
+                                                    {product.name}
+                                                </h3>
+                                            </div>
                                         </div>
 
-                                        {/* Category & Stock */}
-                                        <div className="flex items-center justify-between mb-4">
-                                            <span className="text-sm font-semibold text-ktm-orange bg-ktm-orange/10 px-3 py-1 rounded-full">
-                                                {product.category}
-                                            </span>
-                                            {product.inStock ? (
-                                                <span className="text-xs text-green-600 font-medium">✓ In Stock</span>
-                                            ) : (
-                                                <span className="text-xs text-gray-500 font-medium">Out of Stock</span>
-                                            )}
-                                        </div>
-
-                                        {/* View Details Button */}
-                                        <Link href={`/products/${product.id}`} className="block">
-                                            <motion.button
-                                                className="w-full bg-gradient-to-r from-ktm-orange to-orange-500 text-white font-semibold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-ktm-orange/50 transition-all duration-300"
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                            >
-                                                View Details
-                                            </motion.button>
-                                        </Link>
+                                        {/* 3D Shadow Effect */}
+                                        <div
+                                            className="absolute -bottom-2 left-2 right-2 h-4 bg-black/30 blur-md -z-10"
+                                            style={{
+                                                clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0% 100%)',
+                                            }}
+                                        />
                                     </div>
-                                </Card>
+                                </Link>
                             </motion.div>
                         );
                     })}
                 </motion.div>
 
-                <div className="text-center mt-8 md:hidden">
+                <motion.div
+                    className="text-center mt-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                >
                     <Link href="/products">
-                        <button className="px-6 py-3 border-2 border-ktm-orange text-ktm-orange font-semibold rounded-lg hover:bg-ktm-orange hover:text-white transition-all duration-300">
+                        <motion.button
+                            className="px-8 py-4 bg-gradient-to-r from-ktm-orange to-orange-500 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-ktm-orange/50 transition-all duration-300"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
                             View All Products
-                        </button>
+                        </motion.button>
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

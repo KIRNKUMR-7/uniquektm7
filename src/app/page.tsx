@@ -1,5 +1,6 @@
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
+import CustomMudguardSection from '@/components/home/CustomMudguardSection';
 import CategoryGrid from '@/components/home/CategoryGrid';
 import ServiceCTA from '@/components/home/ServiceCTA';
 import TrustBadges from '@/components/home/TrustBadges';
@@ -16,14 +17,15 @@ export default function Home() {
         <main className="min-h-screen">
             <Navbar />
             <HeroSection />
-            <TrustBadges />
-            <CommitmentSection />
-            <CategorySection />
+            <ServiceCTA />
             <FeaturedProducts />
+            <CustomMudguardSection />
+            <CategorySection />
             <BrandsSection />
             <ContactSection />
-            <ServiceCTA />
             <TestimonialsSection />
+            <TrustBadges />
+            <CommitmentSection />
 
             <Footer />
         </main>

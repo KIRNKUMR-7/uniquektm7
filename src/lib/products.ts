@@ -117,8 +117,7 @@ export const allProducts: Product[] = [
             'Weight': '2.8 kg',
             'Compatibility': 'Duke 200, Duke 250',
             'Warranty': '1 year'
-        },
-        featured: true,
+        }
     },
     {
         id: '104',
@@ -292,7 +291,6 @@ export const allProducts: Product[] = [
         reviews: 412,
         image: '7',
         inStock: true,
-        featured: true,
         description: 'Genuine NGK CR9EK spark plug designed specifically for KTM motorcycles. Ensures optimal combustion, improved fuel efficiency, and reliable engine performance. This OEM-quality spark plug delivers consistent ignition and is built to withstand high temperatures and pressures.',
         features: [
             'Genuine NGK brand - trusted worldwide',
@@ -878,6 +876,7 @@ export const allProducts: Product[] = [
         reviews: 43,
         image: '402',
         inStock: true,
+        featured: true,
         description: 'Upper triple clamp for Duke 390. CNC-machined aluminum for precision and strength. Includes steering stem and bearings.',
         features: [
             'CNC-machined aluminum',
@@ -928,8 +927,7 @@ export const allProducts: Product[] = [
             'Adjustment': 'Preload',
             'Compatibility': 'All KTM Duke & RC Models',
             'Warranty': '1 year'
-        },
-        featured: true,
+        }
     },
     {
         id: '404',
@@ -975,6 +973,7 @@ export const allProducts: Product[] = [
         reviews: 112,
         image: '405',
         inStock: true,
+        featured: true,
         description: 'OEM handlebar for Duke 200. Comfortable riding position with optimal reach. Steel construction with chrome finish.',
         features: [
             'OEM specifications',
@@ -1059,8 +1058,7 @@ export const allProducts: Product[] = [
             'Finish': 'Polished',
             'Compatibility': 'Duke 390, RC 390',
             'Warranty': '2 years'
-        },
-        featured: true,
+        }
     },
     {
         id: '503',
@@ -1096,18 +1094,18 @@ export const allProducts: Product[] = [
     },
     {
         id: '504',
-        name: 'Front Brake Pads - Performance',
+        name: 'Brembo Front and Back Brake Pad',
         category: 'Brakes & Wheels',
         subcategory: 'Brakes',
-        model: 'Duke 200, Duke 250',
+        model: 'Duke 200, Duke 250, Duke 390',
         price: 1500,
         originalPrice: 1800,
         rating: 4.8,
         reviews: 324,
-        image: '1',
+        image: '504',
         inStock: true,
         featured: true,
-        description: 'High-performance front brake pads engineered for superior stopping power and durability. These premium brake pads offer excellent bite, consistent performance in all weather conditions, and reduced brake fade during aggressive riding. Perfect for both street and track use.',
+        description: 'Premium Brembo front and back brake pads engineered for superior stopping power and durability. These high-performance brake pads offer excellent bite, consistent performance in all weather conditions, and reduced brake fade during aggressive riding. Perfect for both street and track use.',
         features: [
             'Enhanced stopping power - 20% better than stock',
             'Low dust formula keeps wheels cleaner',
@@ -1336,7 +1334,6 @@ export const allProducts: Product[] = [
         reviews: 456,
         image: '2',
         inStock: true,
-        featured: true,
         description: 'Premium quality engine oil filter designed to provide maximum protection for your KTM engine. Features advanced filtration media that captures 99% of harmful contaminants while maintaining optimal oil flow. Essential for regular maintenance and engine longevity.',
         features: [
             'OEM-quality construction and materials',
@@ -1745,6 +1742,204 @@ export const allProducts: Product[] = [
             'Pivot': 'Sealed bearing',
             'Compatibility': 'Duke 390',
             'Warranty': '1 year'
+        }
+    },
+    {
+        id: '706',
+        name: 'Crash Protector Set',
+        category: 'PowerParts/Accessories',
+        subcategory: 'Frame Protection',
+        model: 'Duke 200, Duke 250, Duke 390',
+        price: 2800,
+        originalPrice: 3500,
+        rating: 4.9,
+        reviews: 245,
+        image: '706',
+        inStock: true,
+        featured: true,
+        description: 'Premium crash protector set for KTM Duke series. CNC-machined aluminum with polyurethane sliders to protect your bike from falls and slides. Essential protection for every rider.',
+        features: [
+            'CNC-machined aluminum construction',
+            'High-impact polyurethane sliders',
+            'Protects frame and engine case',
+            'Easy bolt-on installation',
+            'No frame modification required',
+            'Stylish orange and black design'
+        ],
+        specifications: {
+            'Material': 'Aluminum 6061 + Polyurethane',
+            'Set Includes': '2 sliders + mounting hardware',
+            'Slider Diameter': '60mm',
+            'Weight': '450g (pair)',
+            'Finish': 'Anodized black with orange accent',
+            'Mounting': 'Frame bolt-on',
+            'Compatibility': 'Duke 200, Duke 250, Duke 390',
+            'Warranty': '1 year'
+        }
+    },
+    {
+        id: '707',
+        name: 'Saddle Bag - Waterproof',
+        category: 'PowerParts/Accessories',
+        subcategory: 'Luggage',
+        model: 'All Models',
+        price: 3500,
+        originalPrice: 4200,
+        rating: 4.8,
+        reviews: 178,
+        image: '707',
+        inStock: true,
+        featured: true,
+        description: 'Premium waterproof saddle bag for KTM motorcycles. Expandable design with 15-25L capacity. Perfect for daily commutes and weekend trips. Quick-release mounting system.',
+        features: [
+            'Fully waterproof construction',
+            'Expandable 15-25L capacity',
+            'Quick-release mounting system',
+            'Reflective strips for visibility',
+            'Multiple compartments',
+            'Shoulder strap included'
+        ],
+        specifications: {
+            'Material': '1680D Ballistic Nylon + TPU lining',
+            'Capacity': '15-25 Liters (expandable)',
+            'Dimensions': '40cm x 30cm x 15-25cm',
+            'Weight': '1.2 kg',
+            'Waterproof Rating': 'IPX6',
+            'Mounting': 'Quick-release straps',
+            'Compatibility': 'All KTM Duke & RC Models',
+            'Warranty': '2 years'
+        }
+    },
+    {
+        id: '708',
+        name: 'Chain Sprocket Kit',
+        category: 'PowerParts/Accessories',
+        subcategory: 'Drivetrain',
+        model: 'Duke 390, RC 390',
+        price: 5500,
+        originalPrice: 6800,
+        rating: 4.9,
+        reviews: 312,
+        image: '708',
+        inStock: true,
+        featured: true,
+        description: 'Complete chain and sprocket kit for KTM Duke 390 and RC 390. Premium gold O-ring chain with hardened steel sprockets. Upgraded performance with extended service life.',
+        features: [
+            'O-ring sealed chain for longevity',
+            'Hardened steel sprockets',
+            'Gold finish chain for style',
+            'Pre-stretched chain - ready to install',
+            'Improved power transfer',
+            'Extended service life'
+        ],
+        specifications: {
+            'Chain Type': '520 O-Ring Gold',
+            'Chain Links': '118',
+            'Front Sprocket': '14T Hardened Steel',
+            'Rear Sprocket': '44T Hardened Steel',
+            'Tensile Strength': '38,000 N',
+            'Weight': '2.8 kg (complete kit)',
+            'Compatibility': 'Duke 390, RC 390',
+            'Warranty': '1 year'
+        }
+    },
+    {
+        id: '709',
+        name: 'KTM Chain Lubricant Spray',
+        category: 'Service Parts',
+        subcategory: 'Lubricants & Fluids',
+        model: 'All KTM Models',
+        price: 650,
+        originalPrice: 800,
+        rating: 4.8,
+        reviews: 256,
+        image: '709',
+        inStock: true,
+        featured: false,
+        description: 'Genuine KTM chain lubricant spray for optimal chain performance and longevity. High-quality synthetic formula provides excellent protection against wear, corrosion, and friction. Essential for chain maintenance on all KTM motorcycles.',
+        features: [
+            'Synthetic formula for superior protection',
+            'Long-lasting lubrication',
+            'Water and dust resistant',
+            'Reduces chain noise and friction',
+            'Easy spray application',
+            'Suitable for O-ring and X-ring chains'
+        ],
+        specifications: {
+            'Type': 'Synthetic Chain Lubricant',
+            'Volume': '400ml',
+            'Application': 'Spray',
+            'Temperature Range': '-30°C to +150°C',
+            'Compatibility': 'All O-ring, X-ring chains',
+            'Color': 'Transparent',
+            'Flash Point': '65°C',
+            'Warranty': 'N/A (consumable)'
+        }
+    },
+    {
+        id: '710',
+        name: 'Chain Cleaner Brush Kit',
+        category: 'Service Parts',
+        subcategory: 'Tools & Cleaning',
+        model: 'All KTM Models',
+        price: 450,
+        originalPrice: 550,
+        rating: 4.7,
+        reviews: 189,
+        image: '710',
+        inStock: true,
+        featured: false,
+        description: 'Professional chain cleaner brush kit for thorough motorcycle chain cleaning. Multi-sided bristle design reaches all chain surfaces for complete cleaning. Essential tool for chain maintenance on all KTM motorcycles.',
+        features: [
+            'Multi-sided bristle design',
+            'Ergonomic handle grip',
+            'Durable nylon bristles',
+            'Reaches all chain surfaces',
+            'Easy to use and clean',
+            'Long-lasting construction'
+        ],
+        specifications: {
+            'Type': 'Chain Cleaning Brush',
+            'Material': 'Nylon bristles + ABS handle',
+            'Brush Sides': '3-sided design',
+            'Handle Length': '15cm',
+            'Bristle Type': 'Stiff nylon',
+            'Compatibility': 'All motorcycle chains',
+            'Color': 'Black/Orange',
+            'Warranty': '6 months'
+        }
+    },
+    {
+        id: '711',
+        name: 'KTM Motorex Engine Oil 10W-50',
+        category: 'Service Parts',
+        subcategory: 'Lubricants & Fluids',
+        model: 'All KTM Models',
+        price: 1200,
+        originalPrice: 1450,
+        rating: 4.9,
+        reviews: 478,
+        image: '711',
+        inStock: true,
+        featured: false,
+        description: 'Premium Motorex fully synthetic engine oil specially formulated for high-performance KTM motorcycles. 10W-50 viscosity provides excellent protection in all conditions. Recommended by KTM for optimal engine performance and longevity.',
+        features: [
+            'Fully synthetic formula',
+            '10W-50 multi-grade viscosity',
+            'Excellent high-temperature stability',
+            'Superior wear protection',
+            'Optimized for KTM engines',
+            'Extended drain intervals'
+        ],
+        specifications: {
+            'Type': 'Fully Synthetic Engine Oil',
+            'Viscosity': '10W-50',
+            'Volume': '1 Liter',
+            'API Rating': 'SN/MA2',
+            'JASO': 'MA2',
+            'Flash Point': '230°C',
+            'Pour Point': '-42°C',
+            'Warranty': 'N/A (consumable)'
         }
     },
 ];

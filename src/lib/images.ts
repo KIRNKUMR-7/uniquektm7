@@ -1,7 +1,7 @@
 // KTM-specific product images - using genuine local product photos
 export const productImages: Record<string, string> = {
     // Original products (featured)
-    '1': '/images/products/brake-pads.jpg',
+    '1': '/images/products/brembo brake pad.jpg',
     '2': '/images/products/oil-filter.jpg',
     '3': '/images/products/chain-sprocket.jpg',
     '4': '/images/products/air-filter.jpg',
@@ -43,7 +43,7 @@ export const productImages: Record<string, string> = {
 
     // Suspension & Steering (401-405)
     '401': '/images/products/front-fork-assembly.png', // Front fork
-    '402': '/images/products/tripple-clamp-upper.jpg', // Triple clamp
+    '402': '/images/products/triple clamp.jpg', // Triple clamp
     '403': '/images/products/rear-shock-absorber.jpg', // Rear shock
     '404': '/images/products/swingarm-assembly.jpg', // Swingarm
     '405': '/images/products/handlebar-oem.jpg', // Handlebar
@@ -52,8 +52,8 @@ export const productImages: Record<string, string> = {
     '501': '/images/products/front-brake-calimber-assembly.jpg', // Brake caliper
     '502': '/images/products/front-brake-disc-320mm.jpg', // Front brake disc
     '503': '/images/products/rear-brake-disc-230mm.jpg', // Rear brake disc
-    '504': '/images/products/brake-pads.jpg', // Front brake pads (reuse)
-    '505': '/images/products/brake-pads.jpg', // Rear brake pads (reuse)
+    '504': '/images/products/brembo brake pad.jpg', // Brembo Front and Back Brake Pad
+    '505': '/images/products/brembo brake pad.jpg', // Rear brake pads
     '506': '/images/products/front-brake-lever.jpg', // Brake lever
     '507': '/images/products/front-wheel alloy.jpg', // Front wheel
     '508': '/images/products/rear-wheel-alloy.jpg', // Rear wheel
@@ -76,6 +76,14 @@ export const productImages: Record<string, string> = {
     '703': '/images/products/sandle-bag-stand-kit.jpg', // Saddle bag
     '704': '/images/products/Handlebar-grip.jpg', // Grips
     '705': '/images/products/Clutch-lever-assembly.jpg', // Clutch lever (reuse)
+
+    // New Featured Products (706-711)
+    '706': '/images/products/crash-protector-kit.jpg', // Crash Protector Set
+    '707': '/images/products/sandle-bag-stand-kit.jpg', // Saddle Bag
+    '708': '/images/products/chain-sprocket.jpg', // Chain Sprocket Kit
+    '709': '/images/products/Chain-lubricant.png', // Chain Lubricant
+    '710': '/images/products/chain cleaner brush.png', // Chain Cleaner Brush
+    '711': '/images/products/motor oil.jpg', // Motor Oil
 };
 
 export const categoryImages: Record<string, string> = {

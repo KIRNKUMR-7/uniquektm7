@@ -22,7 +22,7 @@ export default function HeroSection() {
                     className="absolute inset-0 opacity-10"
                 >
                     <div className="absolute inset-0" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23FF6600' stroke-width='0.5'/%3E%3C/svg%3E")`,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23333333' stroke-width='0.5'/%3E%3C/svg%3E")`,
                         backgroundSize: '60px 60px'
                     }} />
                 </motion.div>
@@ -31,7 +31,7 @@ export default function HeroSection() {
                 {[...Array(20)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-2 h-2 bg-ktm-orange rounded-full"
+                        className="absolute w-2 h-2 bg-white rounded-full"
                         style={{
                             left: `${(i * 13 + 17) % 100}%`,
                             top: `${(i * 23 + 31) % 100}%`,
@@ -54,7 +54,7 @@ export default function HeroSection() {
                     className="absolute inset-0"
                 >
                     <motion.div
-                        className="absolute top-20 right-20 w-96 h-96 bg-ktm-orange rounded-full blur-3xl"
+                        className="absolute top-20 right-20 w-96 h-96 bg-black rounded-full blur-3xl"
                         animate={{
                             scale: [1, 1.3, 1],
                             x: [0, 100, 0],
@@ -64,7 +64,7 @@ export default function HeroSection() {
                         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.div
-                        className="absolute bottom-20 left-20 w-80 h-80 bg-orange-500 rounded-full blur-3xl"
+                        className="absolute bottom-20 left-20 w-80 h-80 bg-gray-900 rounded-full blur-3xl"
                         animate={{
                             scale: [1, 1.4, 1],
                             x: [0, -80, 0],
@@ -200,7 +200,7 @@ export default function HeroSection() {
                         <div className="relative">
                             {/* Animated Glow Ring */}
                             <motion.div
-                                className="absolute inset-0 bg-gradient-to-r from-ktm-orange via-orange-500 to-ktm-orange rounded-full blur-3xl"
+                                className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 rounded-full blur-3xl"
                                 animate={{
                                     scale: [1, 1.3, 1],
                                     opacity: [0.3, 0.6, 0.3],
@@ -227,7 +227,7 @@ export default function HeroSection() {
                                     height={700}
                                     className="w-full h-auto object-contain"
                                     style={{
-                                        filter: 'drop-shadow(0 0 60px rgba(255, 102, 0, 0.8))',
+                                        filter: 'drop-shadow(0 0 60px rgba(50, 50, 50, 0.8))',
                                         transform: "translateZ(50px)"
                                     }}
                                     priority

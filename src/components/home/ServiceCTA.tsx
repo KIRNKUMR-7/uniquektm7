@@ -7,7 +7,7 @@ import Button from '@/components/ui/Button';
 
 const services = [
     {
-        title: 'Basic Service',
+        title: 'General Service',
         duration: '2-3 hours',
         popular: false,
         features: [
@@ -20,32 +20,33 @@ const services = [
         ],
     },
     {
-        title: 'Premium Service',
-        duration: '4-5 hours',
+        title: 'Engine Work',
+        duration: null,
         popular: true,
         features: [
-            'Everything in Basic Service',
-            'Air Filter Replacement',
-            'Spark Plug Replacement',
-            'Complete Brake Service',
-            'Suspension Check',
-            'Coolant Top-up',
-            'Complete Bike Detailing',
-            '30-day Service Warranty',
+            'Complete Engine Inspection',
+            'Piston & Ring Replacement',
+            'Cylinder Reboring/Honing',
+            'Valve Adjustment & Servicing',
+            'Crankshaft Bearing Check',
+            'Timing Chain Replacement',
+            'Engine Gasket Kit Replacement',
+            'Engine Performance Tuning',
         ],
     },
     {
-        title: 'Performance Service',
-        duration: 'Full Day',
+        title: 'Full Service',
+        duration: null,
         popular: false,
         features: [
-            'Everything in Premium Service',
-            'ECU Diagnostics & Tuning',
-            'Complete Chain Kit Replacement',
-            'Performance Exhaust Check',
-            'Suspension Fine-tuning',
-            'Racing-grade Fluids',
-            'Performance Report',
+            'Complete Engine Overhaul',
+            'Full Transmission Service',
+            'Clutch Assembly Replacement',
+            'Complete Electrical System Check',
+            'Suspension Rebuild',
+            'Complete Brake System Overhaul',
+            'All Fluids & Filters Replaced',
+            'Full Vehicle Detailing',
             '90-day Service Warranty',
         ],
     },
@@ -167,10 +168,12 @@ export default function ServiceCTA() {
                                 <h3 className="text-2xl font-display font-bold text-ktm-black mb-2">
                                     {service.title}
                                 </h3>
-                                <div className="flex items-center justify-center text-gray-600 mt-2">
-                                    <Clock className="w-4 h-4 mr-2" />
-                                    <span>{service.duration}</span>
-                                </div>
+                                {service.duration && (
+                                    <div className="flex items-center justify-center text-gray-600 mt-2">
+                                        <Clock className="w-4 h-4 mr-2" />
+                                        <span>{service.duration}</span>
+                                    </div>
+                                )}
                             </div>
 
                             <ul className="space-y-3 mb-8">

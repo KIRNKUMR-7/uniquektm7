@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShoppingCart, Heart, Star, Check, Minus, Plus, Zap } from 'lucide-react';
+import { X, Heart, Star, Check, Zap, Phone } from 'lucide-react';
 import { Product } from '@/lib/products';
 import { productImages } from '@/lib/images';
 import Button from '@/components/ui/Button';
@@ -15,9 +15,7 @@ interface QuickViewModalProps {
 }
 
 export default function QuickViewModal({ product, isOpen, onClose }: QuickViewModalProps) {
-    const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
-    const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
 
     // Get cart action
@@ -26,31 +24,10 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
     if (!product) return null;
 
     const images = [productImages[product.image] || product.image];
-    const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
 
-    const handleAddToCart = () => {
-        addItem({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: images[0], // Use the first image (or selected if multiple)
-            model: product.model,
-        });
-
-        // Also update quantity if needed, but current addItem simply adds. 
-        // The store logic: if exists, q+1, else q=1. 
-        // We want to add specific quantity.
-        // Let's check store logic again.
-        // Store logic: addItem takes item without quantity and adds 1 or increments 1.
-        // It doesn't support adding N items at once in the current generic implementation I saw?
-        // Let's re-read store logic quickly.
-
-        setIsAddedToCart(true);
-        setTimeout(() => setIsAddedToCart(false), 2000);
-    };
-
-    const handleQuantityChange = (delta: number) => {
-        setQuantity(Math.max(1, quantity + delta));
+    const handleOrder = () => {
+        // Navigate to order page with product details
+        window.location.href = `/order?product=${encodeURIComponent(product.name)}&model=${encodeURIComponent(product.model)}`;
     };
 
     return (
@@ -100,15 +77,6 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
                                         {/* Badges */}
                                         <div className="absolute top-4 left-4 flex flex-col gap-2">
-                                            {discount > 0 && (
-                                                <motion.div
-                                                    initial={{ scale: 0 }}
-                                                    animate={{ scale: 1 }}
-                                                    className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
-                                                >
-                                                    {discount}% OFF
-                                                </motion.div>
-                                            )}
                                             {product.featured && (
                                                 <motion.div
                                                     initial={{ scale: 0 }}
@@ -188,25 +156,6 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                                         </span>
                                     </div>
 
-                                    {/* Price */}
-                                    <div className="space-y-2">
-                                        <div className="flex items-baseline gap-3">
-                                            <span className="text-4xl font-bold text-ktm-orange">
-                                                ₹{product.price.toLocaleString()}
-                                            </span>
-                                            {product.originalPrice && (
-                                                <span className="text-xl text-gray-400 line-through">
-                                                    ₹{product.originalPrice.toLocaleString()}
-                                                </span>
-                                            )}
-                                        </div>
-                                        {discount > 0 && (
-                                            <p className="text-sm text-green-600 font-medium">
-                                                You save ₹{(product.originalPrice - product.price).toLocaleString()} ({discount}%)
-                                            </p>
-                                        )}
-                                    </div>
-
                                     {/* Description */}
                                     {product.description && (
                                         <p className="text-gray-600 leading-relaxed">
@@ -214,66 +163,17 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                                         </p>
                                     )}
 
-                                    {/* Quantity Selector */}
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-gray-700">Quantity</label>
-                                        <div className="flex items-center gap-4">
-                                            <div className="flex items-center border-2 border-gray-200 rounded-xl overflow-hidden">
-                                                <button
-                                                    onClick={() => handleQuantityChange(-1)}
-                                                    disabled={quantity <= 1}
-                                                    className="p-3 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                                                >
-                                                    <Minus className="w-4 h-4" />
-                                                </button>
-                                                <span className="px-6 font-semibold text-lg">{quantity}</span>
-                                                <button
-                                                    onClick={() => handleQuantityChange(1)}
-                                                    className="p-3 hover:bg-gray-100 transition-colors"
-                                                >
-                                                    <Plus className="w-4 h-4" />
-                                                </button>
-                                            </div>
-                                            <span className="text-sm text-gray-600">
-                                                Total: <span className="font-bold text-ktm-orange">
-                                                    ₹{(product.price * quantity).toLocaleString()}
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>
-
                                     {/* Action Buttons */}
                                     <div className="flex gap-3 pt-4">
                                         <Button
-                                            onClick={handleAddToCart}
+                                            onClick={handleOrder}
                                             disabled={!product.inStock}
-                                            className="flex-1 relative overflow-hidden"
+                                            className="flex-1"
                                         >
-                                            <AnimatePresence mode="wait">
-                                                {isAddedToCart ? (
-                                                    <motion.div
-                                                        key="added"
-                                                        initial={{ y: 20, opacity: 0 }}
-                                                        animate={{ y: 0, opacity: 1 }}
-                                                        exit={{ y: -20, opacity: 0 }}
-                                                        className="flex items-center justify-center gap-2"
-                                                    >
-                                                        <Check className="w-5 h-5" />
-                                                        Added to Cart!
-                                                    </motion.div>
-                                                ) : (
-                                                    <motion.div
-                                                        key="add"
-                                                        initial={{ y: 20, opacity: 0 }}
-                                                        animate={{ y: 0, opacity: 1 }}
-                                                        exit={{ y: -20, opacity: 0 }}
-                                                        className="flex items-center justify-center gap-2"
-                                                    >
-                                                        <ShoppingCart className="w-5 h-5" />
-                                                        Add to Cart
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
+                                            <div className="flex items-center justify-center gap-2">
+                                                <Phone className="w-5 h-5" />
+                                                Order Now
+                                            </div>
                                         </Button>
                                         <Button
                                             variant="outline"
@@ -288,14 +188,6 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                                         <div className="flex items-center gap-2 text-sm text-gray-600">
                                             <Check className="w-4 h-4 text-green-500" />
                                             100% Genuine KTM Part
-                                        </div>
-                                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                                            <Check className="w-4 h-4 text-green-500" />
-                                            Free Shipping on orders above ₹999
-                                        </div>
-                                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                                            <Check className="w-4 h-4 text-green-500" />
-                                            Easy Returns & Exchange
                                         </div>
                                     </div>
                                 </div>

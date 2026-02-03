@@ -5,6 +5,21 @@ import { motion } from 'framer-motion';
 
 const models = [
     {
+        name: 'Duke 125',
+        modelNo: '125 Duke',
+        image: '/images/products/duke 125.jpg',
+    },
+    {
+        name: 'RC 125',
+        modelNo: '125 RC',
+        image: '/images/products/rc 125.png',
+    },
+    {
+        name: 'Duke 160',
+        modelNo: '160 Duke',
+        image: '/images/products/duke 160.avif',
+    },
+    {
         name: 'Duke 200',
         modelNo: '200 Duke',
         image: '/images/products/duke-200.jpg',

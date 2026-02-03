@@ -34,7 +34,7 @@ export default function CommitmentSection() {
                                 transition={{ delay: 0.3, duration: 0.5 }}
                                 className="relative z-10 flex flex-col items-center"
                             >
-                                <span className="text-8xl md:text-9xl font-display font-bold mb-2 tracking-tighter">32+</span>
+                                <span className="text-8xl md:text-9xl font-display font-bold mb-2 tracking-tighter">18+</span>
                                 <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">Years of Excellence</h3>
                                 <div className="h-1 w-24 bg-white mb-6"></div>
                                 <p className="text-xl md:text-2xl font-medium text-orange-50 italic">Committed to Your Bike Parts</p>

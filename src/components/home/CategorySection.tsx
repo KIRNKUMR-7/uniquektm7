@@ -54,7 +54,7 @@ export default function CategorySection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
                     {categories.map((category, index) => {
                         const Icon = category.icon;
                         return (
@@ -64,8 +64,8 @@ export default function CategorySection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    whileHover={{ y: -8, scale: 1.05 }}
-                                    className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer"
+                                    whileHover={{ y: -5, scale: 1.03 }}
+                                    className="group relative overflow-hidden rounded-xl aspect-square cursor-pointer"
                                 >
                                     {/* Background Image */}
                                     <div
@@ -77,15 +77,15 @@ export default function CategorySection() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                                     {/* Content */}
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white">
-                                        <Icon className="w-8 h-8 mb-2 group-hover:scale-110 transition-transform" />
-                                        <h3 className="text-sm md:text-base font-semibold text-center">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-white">
+                                        <Icon className="w-6 h-6 mb-1 group-hover:scale-110 transition-transform" />
+                                        <h3 className="text-xs md:text-sm font-semibold text-center leading-tight">
                                             {category.name}
                                         </h3>
                                     </div>
 
                                     {/* Hover border effect */}
-                                    <div className="absolute inset-0 border-2 border-ktm-orange opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                                    <div className="absolute inset-0 border-2 border-ktm-orange opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
                                 </motion.div>
                             </Link>
                         );
