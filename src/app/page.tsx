@@ -22,10 +22,10 @@ export default function Home() {
             <CustomMudguardSection />
             <CategorySection />
             <BrandsSection />
-            <ContactSection />
-            <TestimonialsSection />
             <TrustBadges />
             <CommitmentSection />
+            <ContactSection />
+            <TestimonialsSection />
 
             <Footer />
         </main>

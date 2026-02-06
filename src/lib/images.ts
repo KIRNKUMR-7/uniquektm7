@@ -84,6 +84,12 @@ export const productImages: Record<string, string> = {
     '709': '/images/products/Chain-lubricant.png', // Chain Lubricant
     '710': '/images/products/chain cleaner brush.png', // Chain Cleaner Brush
     '711': '/images/products/motor oil.jpg', // Motor Oil
+
+    // Oils & Lubricants (801-803)
+    '801': '/images/products/motor oil.jpg', // KTM Motorex Engine Oil
+    '802': '/images/products/Chain-lubricant.png', // KTM Chain Lubricant Spray
+    '803': '/images/products/motul expert hybrid tech.jpg', // Motul Hybrid Tech Oil
+    'motul': '/images/products/motul expert hybrid tech.jpg', // Motul Hybrid Tech Oil (alias)
 };
 
 export const categoryImages: Record<string, string> = {
@@ -94,6 +100,7 @@ export const categoryImages: Record<string, string> = {
     'Brakes & Wheels': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     'Service Parts': 'https://images.unsplash.com/photo-1599819177818-6f7a4e4454d2?w=600&q=80',
     'PowerParts/Accessories': 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
+    'Oils & Lubricants': 'https://images.unsplash.com/photo-1635784063505-22a67d7fd42d?w=600&q=80',
 };
 
 

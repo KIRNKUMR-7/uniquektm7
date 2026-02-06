@@ -2,6 +2,15 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const mudguardImages = [
+    '/images/products/cus 2.jpg',
+    '/images/products/cus 3.jpg',
+    '/images/products/cus 4.jpg',
+    '/images/products/cus 5.jpg',
+    '/images/products/cus 6.jpg',
+];
 
 const bikeModels = [
     'Duke 125', 'Duke 160', 'Duke 200', 'Duke 250', 'Duke 390',
@@ -18,6 +27,15 @@ export default function CustomMudguardSection() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const nextImage = () => {
+        setCurrentImageIndex((prev) => (prev + 1) % mudguardImages.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prev) => (prev - 1 + mudguardImages.length) % mudguardImages.length);
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,30 +86,65 @@ export default function CustomMudguardSection() {
                         className="lg:w-1/2 flex justify-center"
                     >
                         <div className="relative">
-                            {/* Rhombus Container */}
+                            {/* Left Arrow */}
+                            <button
+                                onClick={prevImage}
+                                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-10 h-10 bg-ktm-orange/80 hover:bg-ktm-orange rounded-full flex items-center justify-center text-white transition-all shadow-lg"
+                            >
+                                <ChevronLeft className="w-6 h-6" />
+                            </button>
+
+                            {/* Circle Container */}
                             <motion.div
-                                whileHover={{ scale: 1.05, rotate: 47 }}
+                                whileHover={{ scale: 1.02 }}
                                 transition={{ duration: 0.3 }}
-                                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 relative"
-                                style={{ transform: 'rotate(45deg)' }}
+                                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 relative rounded-full"
                             >
                                 {/* Orange Border Glow */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-ktm-orange to-orange-600 rounded-3xl shadow-2xl shadow-orange-500/30" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-ktm-orange to-orange-600 rounded-full shadow-2xl shadow-orange-500/30" />
 
-                                {/* Inner Container */}
-                                <div className="absolute inset-2 bg-gray-900 rounded-2xl overflow-hidden">
-                                    <img
-                                        src="/images/products/Customized Rear Mudguard.jpg"
-                                        alt="Customized Rear Mudguard"
-                                        className="w-full h-full object-cover"
-                                        style={{ transform: 'rotate(-45deg) scale(1.5)' }}
-                                    />
+                                {/* Inner Container with Slideshow */}
+                                <div className="absolute inset-2 bg-gray-900 rounded-full overflow-hidden">
+                                    <AnimatePresence mode="wait">
+                                        <motion.img
+                                            key={currentImageIndex}
+                                            src={mudguardImages[currentImageIndex]}
+                                            alt={`Customized Rear Mudguard ${currentImageIndex + 1}`}
+                                            className="w-full h-full object-cover"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                    </AnimatePresence>
                                 </div>
                             </motion.div>
 
+                            {/* Right Arrow */}
+                            <button
+                                onClick={nextImage}
+                                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-10 h-10 bg-ktm-orange/80 hover:bg-ktm-orange rounded-full flex items-center justify-center text-white transition-all shadow-lg"
+                            >
+                                <ChevronRight className="w-6 h-6" />
+                            </button>
+
+                            {/* Image Indicators */}
+                            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+                                {mudguardImages.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                        className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
+                                            ? 'bg-ktm-orange w-4'
+                                            : 'bg-gray-500 hover:bg-gray-400'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+
                             {/* Decorative Elements */}
-                            <div className="absolute -top-4 -right-4 w-8 h-8 bg-ktm-orange rounded-full animate-pulse" />
-                            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-orange-400 rounded-full animate-pulse delay-300" />
+                            <div className="absolute -top-2 -right-2 w-8 h-8 bg-ktm-orange rounded-full animate-pulse" />
+                            <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-400 rounded-full animate-pulse delay-300" />
                         </div>
                     </motion.div>
 
@@ -113,22 +166,18 @@ export default function CustomMudguardSection() {
                             </span>
                         </h2>
                         <p className="text-gray-300 text-base mb-6">
-                            Premium quality customized rear mudguards available for <span className="text-ktm-orange font-semibold">all KTM bike models</span>.
+                            Premium quality customized rear mudguards available for <span className="text-ktm-orange font-semibold">Gen3 KTM models</span>.
                             Enhance your bike's look with our stylish and durable mudguards.
                         </p>
 
                         <ul className="text-gray-400 space-y-2 mb-6">
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 bg-ktm-orange rounded-full"></span>
-                                Compatible with Duke 125, 160, 200, 250, 390
+                                Compatible with Gen3 Duke 390 &
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 bg-ktm-orange rounded-full"></span>
-                                Compatible with RC 125, 200, 390
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="w-2 h-2 bg-ktm-orange rounded-full"></span>
-                                Compatible with Adventure 390
+                                Gen3 Duke 250 bikes
                             </li>
                         </ul>
 

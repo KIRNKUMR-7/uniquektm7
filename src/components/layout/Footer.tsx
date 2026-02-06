@@ -6,7 +6,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
     return (
-        <footer className="bg-ktm-black text-white mt-20">
+        <footer className="bg-ktm-black text-white">
             <div className="container-custom py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* About */}

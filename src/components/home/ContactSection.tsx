@@ -228,7 +228,7 @@ export default function ContactSection() {
                                     <p className="text-gray-600 font-medium">uniquektm7@gmail.com</p>
                                 </div>
                             </motion.div>
-                        </div>
+                        </div>  
 
                         {/* Map Overlay Image Style Layout */}
                         <motion.div

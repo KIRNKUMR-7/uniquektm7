@@ -13,10 +13,15 @@ const services = [
         features: [
             'Engine Oil Change',
             'Oil Filter Replacement',
-            'Chain Cleaning & Lubrication',
-            'Brake Inspection',
-            'Tire Pressure Check',
-            'Basic Bike Wash',
+            'Air Filter Cleaning/Replacement',
+            'Fuel Filter Check',
+            'Spark Plug Inspection & Replacement',
+            'Front & Rear Brake Pad Cleaning/Change',
+            'Clutch Cable Check-up',
+            'Water Wash',
+            'Chain Lubrication',
+            'Disc Oil Check-up',
+            'Coolant Oil Check-up',
         ],
     },
     {
@@ -47,7 +52,7 @@ const services = [
             'Complete Brake System Overhaul',
             'All Fluids & Filters Replaced',
             'Full Vehicle Detailing',
-            '90-day Service Warranty',
+            'Warranty Claimed (Condition Based)',
         ],
     },
 ];
@@ -72,6 +77,21 @@ const benefits = [
         icon: Award,
         title: 'Service Warranty',
         description: 'All services backed by our quality guarantee',
+    },
+    {
+        icon: Zap,
+        title: 'Insurance Renewal',
+        description: 'Complete insurance renewal assistance',
+    },
+    {
+        icon: Shield,
+        title: 'Accident Work',
+        description: 'Professional accident repair services',
+    },
+    {
+        icon: Wrench,
+        title: 'Painting Work',
+        description: 'Quality painting and finishing work',
     },
 ];
 
