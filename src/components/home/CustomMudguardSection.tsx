@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const mudguardImages = [
-    '/images/products/customized-mudguard-new.png',
+    '/images/products/cus 2.jpg',
+    '/images/products/cus 3.jpg',
+    '/images/products/cus 4.jpg',
+    '/images/products/cus 5.jpg',
+    '/images/products/cus 6.jpg',
 ];
 
 const bikeModels = [
