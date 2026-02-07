@@ -1683,7 +1683,7 @@ export const allProducts: Product[] = [
     // ========== OILS & LUBRICANTS ==========
     {
         id: '801',
-        name: 'KTM Motorex Engine Oil 10W-50',
+        name: 'KTM Motorex Engine Oil 10W-50 and 20W-50',
         category: 'Oils & Lubricants',
         subcategory: 'Engine Oil',
         model: 'All KTM Models',

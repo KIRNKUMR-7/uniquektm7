@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
     const phoneNumber = '917010093528'; // +91 70100 93528 without + and spaces
+<<<<<<< HEAD
     const message = 'Hello! Welcome to unique KTM spares and services , can you give me more details';
+=======
+    const message = 'Hello! im intrested in unique KTM spares and services, can you give me more details ? ';
+>>>>>>> 93d52fb (Update product names and featured products zoom styling)
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     return (

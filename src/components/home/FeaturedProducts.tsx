@@ -62,6 +62,20 @@ export default function FeaturedProducts() {
                     {featuredProducts.map((product) => {
                         const imageUrl = productImages[product.id] || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80';
 
+                        // Products that need zoom OUT (show full product): Triple Clamp, Handlebar, Brembo
+                        const zoomOutProducts = ['402', '405', '504'];
+                        // Products that need zoom IN (fill frame): Oils
+                        const zoomInProducts = ['801', '802', '803'];
+
+                        const getImageClass = () => {
+                            if (zoomOutProducts.includes(product.id)) {
+                                return "object-contain scale-100 group-hover:scale-110 transition-transform duration-700";
+                            } else if (zoomInProducts.includes(product.id)) {
+                                return "object-cover scale-150 group-hover:scale-175 transition-transform duration-700";
+                            }
+                            return "object-cover scale-125 group-hover:scale-150 transition-transform duration-700";
+                        };
+
                         return (
                             <motion.div
                                 key={product.id}
@@ -79,12 +93,12 @@ export default function FeaturedProducts() {
                                             }}
                                         >
                                             {/* Product Image */}
-                                            <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                                            <div className={`relative aspect-[4/3] overflow-hidden ${zoomOutProducts.includes(product.id) ? 'bg-white' : 'bg-gradient-to-b from-gray-800 to-gray-900'}`}>
                                                 <Image
                                                     src={imageUrl}
                                                     alt={product.name}
                                                     fill
-                                                    className="object-contain p-4 group-hover:scale-110 transition-transform duration-700"
+                                                    className={getImageClass()}
                                                 />
 
                                                 {/* Gradient Overlay */}
